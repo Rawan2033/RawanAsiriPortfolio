@@ -567,6 +567,15 @@ p {
   display: grid;
   grid-template-columns: 1fr 0.95fr;
   gap: 24px;
+  align-items: start;
+}
+
+.project-media {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: start;
+  justify-content: flex-start;
 }
 
 .project-media.dual {
@@ -586,6 +595,22 @@ p {
 .project-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 24px;
+}
+
+.project-media-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0;
+}
+
+.compact-actions {
+  margin-bottom: 18px;
+}
+
+.compact-actions .button {
+  width: 100%;
 }
 
 .project-inline-media {
