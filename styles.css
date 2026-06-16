@@ -588,6 +588,20 @@ p {
   margin-top: 24px;
 }
 
+.project-inline-media {
+  margin: -6px -6px 18px;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid rgba(156, 122, 230, 0.16);
+  background: #f8f6fb;
+}
+
+.project-inline-media img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
 .carousel {
   position: relative;
   height: 100%;
