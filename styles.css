@@ -180,6 +180,18 @@ h1 {
   margin-bottom: 18px;
 }
 
+.hero-title {
+  display: inline-block;
+  min-height: 1.1em;
+  min-width: 10ch;
+}
+
+.hero-title.typing-active {
+  border-right: 3px solid var(--primary-strong);
+  padding-right: 6px;
+  animation: caret-blink 0.85s steps(1) infinite;
+}
+
 h2 {
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   line-height: 1;
@@ -361,11 +373,47 @@ p {
 .floating-card-top {
   top: 10%;
   left: -6%;
+  animation: drift-top 3.8s ease-in-out infinite;
 }
 
 .floating-card-bottom {
   right: -4%;
   bottom: 12%;
+  animation: drift-bottom 4.2s ease-in-out infinite;
+}
+
+@keyframes drift-top {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(8px, -18px, 0);
+  }
+}
+
+@keyframes drift-bottom {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(-10px, 18px, 0);
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    border-right-color: var(--primary-strong);
+  }
+
+  50%,
+  100% {
+    border-right-color: transparent;
+  }
 }
 
 .section-heading {
@@ -834,5 +882,17 @@ p {
 
   .education-badges {
     margin-top: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .floating-card-top,
+  .floating-card-bottom,
+  .hero-title.typing-active {
+    animation: none;
   }
 }

@@ -15,27 +15,29 @@ if (navToggle && navLinks) {
   });
 }
 
-document.querySelectorAll(".carousel").forEach((carousel) => {
-  const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
-  const prev = carousel.querySelector(".prev");
-  const next = carousel.querySelector(".next");
-  let index = 0;
+window.addEventListener("load", () => {
+  document.querySelectorAll(".carousel").forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+    const prev = carousel.querySelector(".prev");
+    const next = carousel.querySelector(".next");
+    let index = 0;
 
-  const render = () => {
-    slides.forEach((slide, slideIndex) => {
-      slide.classList.toggle("active", slideIndex === index);
+    const render = () => {
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === index);
+      });
+    };
+
+    prev?.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      render();
     });
-  };
 
-  prev?.addEventListener("click", () => {
-    index = (index - 1 + slides.length) % slides.length;
+    next?.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      render();
+    });
+
     render();
   });
-
-  next?.addEventListener("click", () => {
-    index = (index + 1) % slides.length;
-    render();
-  });
-
-  render();
 });
